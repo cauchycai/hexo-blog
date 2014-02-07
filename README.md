@@ -1,0 +1,4 @@
+cauchy-blog
+===========
+
+thinking aloud
