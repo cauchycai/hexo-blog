@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>把豆瓣电台做成闹钟</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Thinking Aloud</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>把豆瓣电台做成闹钟</h2>
+<p class="meta">26 Nov 2013</p>
+
+<div class="post">
+<p>
+在我的生物钟变得足够强大之前，我会一直需要一个闹钟。我想要的是闹钟能让我无痛的醒来，或者甚至我一听到它就会迫不及待得想起床。豆瓣电台是最接近我想象的那只闹钟。 
+</p>
+
+<p>
+剩下就是让它每天早上7点自动打开。在MacOSX上还是很好实现的。我能想到的有两种方法：
+</p>
+
+<ol class="org-ol">
+<li>让Mac在早上6:55自动唤醒。然后添加一个cron任务执行一个写好的shell脚本——在每天早上7点执行 open <a href="http://douban.fm">http://douban.fm</a> 。open命令是OSX自带的，带上Web URL作为参数时就调用默认浏览器打开此url。
+</li>
+
+<li>让Mac在早上6:55自动唤醒。使用OSX系统自带的软件Automator增加一个Calendar Alarm，事件是可以定制的，包括可以定制成打开某个url。添加好之后就会生成一个Calendar事件，最后设置事件触发的时间和每日重复就ok了。
+</li>
+</ol>
+
+<p>
+第一种更简单，但是功能不够强大，比如要是我想让itunes播放某个播放列表作闹钟，用这个方法就做不到了。况且它还需要你懂得cron是什么东东。。
+</p>
+
+<p>
+第二种的设置步骤：
+</p>
+
+<ol class="org-ol">
+<li>设置Mac在6:55自动唤醒。在System Preference找到Energy Saver，点右下角Schedule。
+</li>
+</ol>
+
+<p><img src="http://pic.cauchy.me/201311/schedule.png"></p>
+
+<ol class="org-ol">
+<li>调出Automator，添加Calendar Alarm。
+</li>
+</ol>
+
+<p><img src="http://pic.cauchy.me/201311/select-calendar-alarm.png"></p>
+
+<ol class="org-ol">
+<li>搜索Get Specified URLs,拖到右侧。搜索Display Webpages,拖到右侧。
+</li>
+</ol>
+
+<p><img src="http://pic.cauchy.me/201311/auto-open-doubanfm.png"></p>
+
+<ol class="org-ol">
+<li>保存后进入calendar编辑已经自动新建的event。
+</li>
+</ol>
+
+<p><img src="http://pic.cauchy.me/201311/add-to-calendar.png"></p>
+
+<p>
+这样就ok了。Automator很强大，已经有点像我想象中的"机器人"了。
+</p>
+
+</div>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Your Name<br />
+                What You Are<br />
+                you@example.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>
