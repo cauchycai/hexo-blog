@@ -5,7 +5,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-06-15T14:36:44+08:00</updated>
+<updated>2014-06-15T14:48:31+08:00</updated>
 <id>/</id>
 <author>
   <name>Cauchy Cai</name>
@@ -25,27 +25,32 @@
     <uri></uri>
     <email>cauchy.cai@gmail.com</email>
   </author>
-  <content type="html">&lt;h2 id=&quot;installing-passenger-and-dependencies&quot;&gt;Installing Passenger and Dependencies&lt;/h2&gt;
+  <content type="html">&lt;h3 id=&quot;installing-passenger-and-dependencies&quot;&gt;Installing Passenger and Dependencies&lt;/h3&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install build-essential libapache2-mod-passenger apache2 ruby rdoc ruby-dev libopenssl-ruby rubygems
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;using-the-gem-package-manager-for-ruby-modules-install-the-fastthread-gem&quot;&gt;Using the gem package manager for Ruby modules, install the fastthread gem:&lt;/h2&gt;
+&lt;h3 id=&quot;using-the-gem-package-manager-for-ruby-modules-install-the-fastthread-gem&quot;&gt;Using the gem package manager for Ruby modules, install the fastthread gem:&lt;/h3&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo gem install fastthread
 $ sudo gem install rails
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;or-install-previous-versions-of-rails&quot;&gt;Or install previous versions of rails&lt;/h2&gt;
+&lt;h3 id=&quot;or-install-previous-versions-of-rails&quot;&gt;Or install previous versions of rails&lt;/h3&gt;
+
 &lt;pre&gt;&lt;code&gt;$ gem install rails --version 2.1.2
 $ gem install rails --version 2.2.2
 $ gem install rails --version 2.3.5
 $ gem install rails --version 3.0.4
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;install-rvm&quot;&gt;Install RVM&lt;/h2&gt;
-&lt;p&gt;$ curl -L https://get.rvm.io | bash -s stable –ruby
-$ echo “source $HOME/.rvm/scripts/rvm” » ~/.profile&lt;/p&gt;
+&lt;h3 id=&quot;install-rvm&quot;&gt;Install RVM&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -L https://get.rvm.io | bash -s stable --ruby
+$ echo &quot;source $HOME/.rvm/scripts/rvm&quot; &amp;gt;&amp;gt; ~/.profile
+&lt;/code&gt;&lt;/pre&gt;
 
 
   &lt;p&gt;&lt;a href=&quot;/ruby-on-rails-on-debian75&quot;&gt;Install Ruby on Rails on Debian 7.5&lt;/a&gt; was originally published by Cauchy Cai at &lt;a href=&quot;&quot;&gt;Thinking Aloud&lt;/a&gt; on June 15, 2014.&lt;/p&gt;</content>
@@ -63,23 +68,31 @@ $ echo “source $HOME/.rvm/scripts/rvm” » ~/.profile&lt;/p&gt;
     <uri></uri>
     <email>cauchy.cai@gmail.com</email>
   </author>
-  <content type="html">&lt;h2 id=&quot;initialize&quot;&gt;Initialize&lt;/h2&gt;
-&lt;p&gt;### Add User
-	# addgroup admin
-	# useradd -d /home/cauchy -s /bin/bash -m cauchy
-	# passwd cauchy
-	# usermod -a -G admin cauchy
-	# visudo
-### Find This Line
-	root ALL=(ALL:ALL) ALL 
-	after it add the following line
-	root ALL=(ALL:ALL) ALL cauchy ALL=(ALL) NOPASSWD: ALL &lt;/p&gt;
+  <content type="html">&lt;h3 id=&quot;initialize&quot;&gt;Initialize&lt;/h3&gt;
 
-&lt;h3 id=&quot;login-as-cauchy&quot;&gt;Login as cauchy&lt;/h3&gt;
+&lt;h4 id=&quot;add-user&quot;&gt;Add User&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# addgroup admin
+# useradd -d /home/cauchy -s /bin/bash -m cauchy
+# passwd cauchy
+# usermod -a -G admin cauchy
+# visudo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;find-this-line&quot;&gt;Find This Line&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;root ALL=(ALL:ALL) ALL 
+after it add the following line
+root ALL=(ALL:ALL) ALL cauchy ALL=(ALL) NOPASSWD: ALL 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;login-as-cauchy&quot;&gt;Login as cauchy&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo vi /etc/ssh/sshd_config
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;modify-following-content&quot;&gt;Modify Following Content&lt;/h3&gt;
+&lt;h4 id=&quot;modify-following-content&quot;&gt;Modify Following Content&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;Protocol 2
 
 PermitRootLogin no
@@ -94,15 +107,18 @@ UseDNS no
 AllowUsers cauchy
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;pubkey-login&quot;&gt;Pubkey Login&lt;/h3&gt;
+&lt;h4 id=&quot;pubkey-login&quot;&gt;Pubkey Login&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ ssh -p12312 cauchy@cauchy.me &#39;mkdir -p .ssh &amp;amp;&amp;amp; cat &amp;gt;&amp;gt; .ssh/authorized_keys&#39; &amp;lt; ~/.ssh/id_rsa.pub
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;login-to-cauchyme-again&quot;&gt;Login to cauchy.me again&lt;/h3&gt;
+&lt;h4 id=&quot;login-to-cauchyme-again&quot;&gt;Login to cauchy.me again&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo chmod 600 ~/.ssh/authorized_keys &amp;amp;&amp;amp; chmod 700 ~/.ssh/
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;timezone-setup&quot;&gt;timezone setup&lt;/h3&gt;
+&lt;h4 id=&quot;timezone-setup&quot;&gt;timezone setup&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ tzselect
 $ echo &quot;TZ=&#39;Asia/Shanghai&#39;; export TZ&quot; &amp;gt;&amp;gt; ~/.profile
 $ . ~/.profile
@@ -110,20 +126,22 @@ $ sudo apt-get update
 $ sudo apt-get upgrade
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;install-dropbox&quot;&gt;Install Dropbox&lt;/h2&gt;
+&lt;h3 id=&quot;install-dropbox&quot;&gt;Install Dropbox&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;$ cd ~ &amp;amp;&amp;amp; wget -O - &quot;https://www.dropbox.com/download?plat=lnx.x86_64&quot; | tar xzf -
 $ mkdir -p ~/bin &amp;amp;&amp;amp; wget -O ~/bin/dropbox.py &quot;https://www.dropbox.com/download?dl=packages/dropbox.py&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;install-nginx&quot;&gt;Install nginx&lt;/h2&gt;
+&lt;h3 id=&quot;install-nginx&quot;&gt;Install nginx&lt;/h3&gt;
 
-&lt;h3 id=&quot;from-repositories&quot;&gt;From Repositories&lt;/h3&gt;
+&lt;h4 id=&quot;from-repositories&quot;&gt;From Repositories&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install nginx
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;from-source-distribution&quot;&gt;From Source Distribution&lt;/h3&gt;
+&lt;h4 id=&quot;from-source-distribution&quot;&gt;From Source Distribution&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install libpcre3-dev build-essential libssl-dev
@@ -134,7 +152,8 @@ $ cd /opt/nginx-1.5.9/
 $ sudo ./configure --prefix=/opt/nginx --user=nginx --group=nginx --with-http_ssl_module --with-ipv6
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;you-should-see&quot;&gt;You should see:&lt;/h4&gt;
+&lt;h5 id=&quot;you-should-see&quot;&gt;You should see:&lt;/h5&gt;
+
 &lt;pre&gt;&lt;code&gt;nginx path prefix: &quot;/opt/nginx&quot;
 nginx binary file: &quot;/opt/nginx/sbin/nginx&quot;
 nginx configuration prefix: &quot;/opt/nginx/conf&quot;
@@ -149,37 +168,44 @@ nginx http uwsgi temporary files: &quot;uwsgi_temp&quot;
 nginx http scgi temporary files: &quot;scgi_temp&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&quot;then&quot;&gt;Then&lt;/h4&gt;
+&lt;h5 id=&quot;then&quot;&gt;Then&lt;/h5&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo make
 $ sudo make install
 $ sudo adduser --system --no-create-home --disabled-login --disabled-password --group nginx
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;create-an-init-script-to-manage-nginx&quot;&gt;Create an Init Script to Manage Nginx&lt;/h3&gt;
+&lt;h4 id=&quot;create-an-init-script-to-manage-nginx&quot;&gt;Create an Init Script to Manage Nginx&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo wget -O init-deb.sh http://library.linode.com/assets/1538-init-deb.sh
 $ sudo mv init-deb.sh /etc/init.d/nginx
 $ sudo chmod +x /etc/init.d/nginx
 $ sudo /usr/sbin/update-rc.d -f nginx defaults
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;edit-etcinitdnginx&quot;&gt;Edit /etc/init.d/nginx&lt;/h3&gt;
+&lt;h4 id=&quot;edit-etcinitdnginx&quot;&gt;Edit /etc/init.d/nginx&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;DAEMON=/usr/sbin/nginx
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;edit-etcnginxnginxconf&quot;&gt;Edit /etc/nginx/nginx.conf&lt;/h3&gt;
+&lt;h4 id=&quot;edit-etcnginxnginxconf&quot;&gt;Edit /etc/nginx/nginx.conf&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;user cauchy;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;start-nginx&quot;&gt;Start nginx&lt;/h3&gt;
+&lt;h4 id=&quot;start-nginx&quot;&gt;Start nginx&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo service nginx start
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;add-www-folder&quot;&gt;Add www folder&lt;/h3&gt;
+&lt;h4 id=&quot;add-www-folder&quot;&gt;Add www folder&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo mkdir /var/www
 $ sudo chown cauchy:cauchy /var/www
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;add-virtual-host-edit-etcnginxconfdvhostsconf&quot;&gt;Add Virtual Host, edit /etc/nginx/conf.d/vhosts.conf&lt;/h3&gt;
+&lt;h4 id=&quot;add-virtual-host-edit-etcnginxconfdvhostsconf&quot;&gt;Add Virtual Host, edit /etc/nginx/conf.d/vhosts.conf&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;server {
     listen 80;
     server_name cauchy.com;
@@ -188,32 +214,37 @@ $ sudo chown cauchy:cauchy /var/www
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;install-jekyll&quot;&gt;Install jekyll&lt;/h2&gt;
+&lt;h3 id=&quot;install-jekyll&quot;&gt;Install jekyll&lt;/h3&gt;
 
-&lt;h3 id=&quot;install-gem&quot;&gt;install gem&lt;/h3&gt;
+&lt;h4 id=&quot;install-gem&quot;&gt;install gem&lt;/h4&gt;
 
-&lt;h3 id=&quot;install-jekyll-1&quot;&gt;install jekyll&lt;/h3&gt;
+&lt;h4 id=&quot;install-jekyll-1&quot;&gt;install jekyll&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo gem install jekyll
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&quot;github-config&quot;&gt;github config&lt;/h2&gt;
+&lt;h3 id=&quot;github-config&quot;&gt;github config&lt;/h3&gt;
 
-&lt;h3 id=&quot;install-git-client&quot;&gt;Install git client&lt;/h3&gt;
+&lt;h4 id=&quot;install-git-client&quot;&gt;Install git client&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ sudo apt-get install git
 $ git config --global user.email &quot;yourname@example.com&quot;
 $ git config --global user.name &quot;Your Name&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;make-sure-sshidrsapub-does-not-exist&quot;&gt;Make sure .ssh/id_rsa.pub does not exist&lt;/h3&gt;
+&lt;h4 id=&quot;make-sure-sshidrsapub-does-not-exist&quot;&gt;Make sure .ssh/id_rsa.pub does not exist&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ cd ~/.ssh
 $ ls -al
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;generate-a-new-ssh-key&quot;&gt;Generate a new SSH key&lt;/h3&gt;
+&lt;h4 id=&quot;generate-a-new-ssh-key&quot;&gt;Generate a new SSH key&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ ssh-keygen -t rsa -C &quot;yourname@example.com&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&quot;copy-sshidrsapub-to-github-and-test&quot;&gt;Copy .ssh/id_rsa.pub to github and test&lt;/h3&gt;
+&lt;h4 id=&quot;copy-sshidrsapub-to-github-and-test&quot;&gt;Copy .ssh/id_rsa.pub to github and test&lt;/h4&gt;
+
 &lt;pre&gt;&lt;code&gt;$ ssh -T git@github.com
 &lt;/code&gt;&lt;/pre&gt;
 

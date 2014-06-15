@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+
+
 <meta charset="utf-8">
 <title>Debian 7.5 Initialize &#8211; Thinking Aloud</title>
 <meta name="description" content="">
@@ -8,7 +8,7 @@
 
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Debian 7.5 Initialize &#8211; Thinking Aloud">
-<meta property="og:description" content="## Initialize### Add User	# addgroup admin	# useradd -d /home/cauchy -s /bin/bash -m cauchy	# passwd cauchy	# usermod...">
+<meta property="og:description" content="### Initialize#### Add User	# addgroup admin	# useradd -d /home/cauchy -s /bin/bash -m cauchy	# passwd cauchy	# userm...">
 <meta property="og:url" content="/debian75-init">
 <meta property="og:site_name" content="Thinking Aloud">
 
@@ -50,7 +50,7 @@
 
 <div id="bump">
   <body class="">
-    <header class="site-header">
+    <header class="site-header darken">
       <div class="wrap">
         <hgroup>
           <h1><a href="/">Thinking Aloud</a></h1>
@@ -72,11 +72,8 @@
     </header>
 
 
-<section class="article">
+<section class="article pad-top">
 
-
-  <div class="overlay"></div>
-  <div class="featured-image" style="background-image: url(/images/typewriter.jpg)"></div>
 
 
 
@@ -89,23 +86,31 @@
           </hgroup>
         </header>
 
-        <h2 id="initialize">Initialize</h2>
-<p>### Add User
-	# addgroup admin
-	# useradd -d /home/cauchy -s /bin/bash -m cauchy
-	# passwd cauchy
-	# usermod -a -G admin cauchy
-	# visudo
-### Find This Line
-	root ALL=(ALL:ALL) ALL 
-	after it add the following line
-	root ALL=(ALL:ALL) ALL cauchy ALL=(ALL) NOPASSWD: ALL </p>
+        <h3 id="initialize">Initialize</h3>
 
-<h3 id="login-as-cauchy">Login as cauchy</h3>
+<h4 id="add-user">Add User</h4>
+
+<pre><code># addgroup admin
+# useradd -d /home/cauchy -s /bin/bash -m cauchy
+# passwd cauchy
+# usermod -a -G admin cauchy
+# visudo
+</code></pre>
+
+<h4 id="find-this-line">Find This Line</h4>
+
+<pre><code>root ALL=(ALL:ALL) ALL 
+after it add the following line
+root ALL=(ALL:ALL) ALL cauchy ALL=(ALL) NOPASSWD: ALL 
+</code></pre>
+
+<h4 id="login-as-cauchy">Login as cauchy</h4>
+
 <pre><code>$ sudo vi /etc/ssh/sshd_config
 </code></pre>
 
-<h3 id="modify-following-content">Modify Following Content</h3>
+<h4 id="modify-following-content">Modify Following Content</h4>
+
 <pre><code>Protocol 2
 
 PermitRootLogin no
@@ -120,15 +125,18 @@ UseDNS no
 AllowUsers cauchy
 </code></pre>
 
-<h3 id="pubkey-login">Pubkey Login</h3>
+<h4 id="pubkey-login">Pubkey Login</h4>
+
 <pre><code>$ ssh -p12312 cauchy@cauchy.me 'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys' &lt; ~/.ssh/id_rsa.pub
 </code></pre>
 
-<h3 id="login-to-cauchyme-again">Login to cauchy.me again</h3>
+<h4 id="login-to-cauchyme-again">Login to cauchy.me again</h4>
+
 <pre><code>$ sudo chmod 600 ~/.ssh/authorized_keys &amp;&amp; chmod 700 ~/.ssh/
 </code></pre>
 
-<h3 id="timezone-setup">timezone setup</h3>
+<h4 id="timezone-setup">timezone setup</h4>
+
 <pre><code>$ tzselect
 $ echo "TZ='Asia/Shanghai'; export TZ" &gt;&gt; ~/.profile
 $ . ~/.profile
@@ -136,20 +144,22 @@ $ sudo apt-get update
 $ sudo apt-get upgrade
 </code></pre>
 
-<h2 id="install-dropbox">Install Dropbox</h2>
+<h3 id="install-dropbox">Install Dropbox</h3>
 <pre><code>$ cd ~ &amp;&amp; wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 $ mkdir -p ~/bin &amp;&amp; wget -O ~/bin/dropbox.py "https://www.dropbox.com/download?dl=packages/dropbox.py"
 </code></pre>
 
-<h2 id="install-nginx">Install nginx</h2>
+<h3 id="install-nginx">Install nginx</h3>
 
-<h3 id="from-repositories">From Repositories</h3>
+<h4 id="from-repositories">From Repositories</h4>
+
 <pre><code>$ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install nginx
 </code></pre>
 
-<h3 id="from-source-distribution">From Source Distribution</h3>
+<h4 id="from-source-distribution">From Source Distribution</h4>
+
 <pre><code>$ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get install libpcre3-dev build-essential libssl-dev
@@ -160,7 +170,8 @@ $ cd /opt/nginx-1.5.9/
 $ sudo ./configure --prefix=/opt/nginx --user=nginx --group=nginx --with-http_ssl_module --with-ipv6
 </code></pre>
 
-<h4 id="you-should-see">You should see:</h4>
+<h5 id="you-should-see">You should see:</h5>
+
 <pre><code>nginx path prefix: "/opt/nginx"
 nginx binary file: "/opt/nginx/sbin/nginx"
 nginx configuration prefix: "/opt/nginx/conf"
@@ -175,37 +186,44 @@ nginx http uwsgi temporary files: "uwsgi_temp"
 nginx http scgi temporary files: "scgi_temp"
 </code></pre>
 
-<h4 id="then">Then</h4>
+<h5 id="then">Then</h5>
+
 <pre><code>$ sudo make
 $ sudo make install
 $ sudo adduser --system --no-create-home --disabled-login --disabled-password --group nginx
 </code></pre>
 
-<h3 id="create-an-init-script-to-manage-nginx">Create an Init Script to Manage Nginx</h3>
+<h4 id="create-an-init-script-to-manage-nginx">Create an Init Script to Manage Nginx</h4>
+
 <pre><code>$ sudo wget -O init-deb.sh http://library.linode.com/assets/1538-init-deb.sh
 $ sudo mv init-deb.sh /etc/init.d/nginx
 $ sudo chmod +x /etc/init.d/nginx
 $ sudo /usr/sbin/update-rc.d -f nginx defaults
 </code></pre>
 
-<h3 id="edit-etcinitdnginx">Edit /etc/init.d/nginx</h3>
+<h4 id="edit-etcinitdnginx">Edit /etc/init.d/nginx</h4>
+
 <pre><code>DAEMON=/usr/sbin/nginx
 </code></pre>
 
-<h3 id="edit-etcnginxnginxconf">Edit /etc/nginx/nginx.conf</h3>
+<h4 id="edit-etcnginxnginxconf">Edit /etc/nginx/nginx.conf</h4>
+
 <pre><code>user cauchy;
 </code></pre>
 
-<h3 id="start-nginx">Start nginx</h3>
+<h4 id="start-nginx">Start nginx</h4>
+
 <pre><code>$ sudo service nginx start
 </code></pre>
 
-<h3 id="add-www-folder">Add www folder</h3>
+<h4 id="add-www-folder">Add www folder</h4>
+
 <pre><code>$ sudo mkdir /var/www
 $ sudo chown cauchy:cauchy /var/www
 </code></pre>
 
-<h3 id="add-virtual-host-edit-etcnginxconfdvhostsconf">Add Virtual Host, edit /etc/nginx/conf.d/vhosts.conf</h3>
+<h4 id="add-virtual-host-edit-etcnginxconfdvhostsconf">Add Virtual Host, edit /etc/nginx/conf.d/vhosts.conf</h4>
+
 <pre><code>server {
     listen 80;
     server_name cauchy.com;
@@ -214,32 +232,37 @@ $ sudo chown cauchy:cauchy /var/www
 }
 </code></pre>
 
-<h2 id="install-jekyll">Install jekyll</h2>
+<h3 id="install-jekyll">Install jekyll</h3>
 
-<h3 id="install-gem">install gem</h3>
+<h4 id="install-gem">install gem</h4>
 
-<h3 id="install-jekyll-1">install jekyll</h3>
+<h4 id="install-jekyll-1">install jekyll</h4>
+
 <pre><code>$ sudo gem install jekyll
 </code></pre>
 
-<h2 id="github-config">github config</h2>
+<h3 id="github-config">github config</h3>
 
-<h3 id="install-git-client">Install git client</h3>
+<h4 id="install-git-client">Install git client</h4>
+
 <pre><code>$ sudo apt-get install git
 $ git config --global user.email "yourname@example.com"
 $ git config --global user.name "Your Name"
 </code></pre>
 
-<h3 id="make-sure-sshidrsapub-does-not-exist">Make sure .ssh/id_rsa.pub does not exist</h3>
+<h4 id="make-sure-sshidrsapub-does-not-exist">Make sure .ssh/id_rsa.pub does not exist</h4>
+
 <pre><code>$ cd ~/.ssh
 $ ls -al
 </code></pre>
 
-<h3 id="generate-a-new-ssh-key">Generate a new SSH key</h3>
+<h4 id="generate-a-new-ssh-key">Generate a new SSH key</h4>
+
 <pre><code>$ ssh-keygen -t rsa -C "yourname@example.com"
 </code></pre>
 
-<h3 id="copy-sshidrsapub-to-github-and-test">Copy .ssh/id_rsa.pub to github and test</h3>
+<h4 id="copy-sshidrsapub-to-github-and-test">Copy .ssh/id_rsa.pub to github and test</h4>
+
 <pre><code>$ ssh -T git@github.com
 </code></pre>
 
@@ -250,9 +273,7 @@ $ ls -al
 
       
 
-
       </article>
-
     </section>
 </div>
 
