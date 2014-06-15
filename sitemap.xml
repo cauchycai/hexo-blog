@@ -6,6 +6,14 @@
 
     
     <url>
+        <loc>/ruby-on-rails-on-debian75</loc>
+    </url>
+    
+    <url>
+        <loc>/debian75-init</loc>
+    </url>
+    
+    <url>
         <loc>/php-unit-test</loc>
     </url>
     
