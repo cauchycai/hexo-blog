@@ -1,7 +1,10 @@
 ---
+layout: post
 title: "Install Ruby on Rails on Debian 7.5"
 tags: [om, linux, ruby]
 ---
+{% include JB/setup %}
+
 ### Installing Passenger and Dependencies
 
 	$ sudo apt-get update
