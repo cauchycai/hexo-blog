@@ -5,7 +5,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2014-07-07T22:59:39+08:00</updated>
+<updated>2014-07-20T11:21:45+08:00</updated>
 <id>/</id>
 <author>
   <name>Cauchy Cai</name>
@@ -16,8 +16,8 @@
 
 <entry>
   <title type="html"><![CDATA[Install Ruby on Rails on Debian 7.5]]></title>
-  <link rel="alternate" type="text/html" href="/ruby-on-rails-on-debian75" />
-  <id>/ruby-on-rails-on-debian75</id>
+  <link rel="alternate" type="text/html" href="/note/ruby-on-rails-on-debian75" />
+  <id>/note/ruby-on-rails-on-debian75</id>
   <published>2014-06-15T00:00:00+08:00</published>
   <updated>2014-06-15T00:00:00+08:00</updated>
   <author>
@@ -53,14 +53,14 @@ $ echo &quot;source $HOME/.rvm/scripts/rvm&quot; &amp;gt;&amp;gt; ~/.profile
 &lt;/code&gt;&lt;/pre&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/ruby-on-rails-on-debian75&quot;&gt;Install Ruby on Rails on Debian 7.5&lt;/a&gt; was originally published by Cauchy Cai at &lt;a href=&quot;&quot;&gt;Thinking Aloud&lt;/a&gt; on June 15, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/note/ruby-on-rails-on-debian75&quot;&gt;Install Ruby on Rails on Debian 7.5&lt;/a&gt; was originally published by Cauchy Cai at &lt;a href=&quot;&quot;&gt;Thinking Aloud&lt;/a&gt; on June 15, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Debian 7.5 Initialize]]></title>
-  <link rel="alternate" type="text/html" href="/debian75-init" />
-  <id>/debian75-init</id>
+  <link rel="alternate" type="text/html" href="/cn/debian75-init" />
+  <id>/cn/debian75-init</id>
   <published>2014-06-10T00:00:00+08:00</published>
   <updated>2014-06-10T00:00:00+08:00</updated>
   <author>
@@ -249,14 +249,14 @@ $ ls -al
 &lt;/code&gt;&lt;/pre&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/debian75-init&quot;&gt;Debian 7.5 Initialize&lt;/a&gt; was originally published by Cauchy Cai at &lt;a href=&quot;&quot;&gt;Thinking Aloud&lt;/a&gt; on June 10, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/cn/debian75-init&quot;&gt;Debian 7.5 Initialize&lt;/a&gt; was originally published by Cauchy Cai at &lt;a href=&quot;&quot;&gt;Thinking Aloud&lt;/a&gt; on June 10, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[phpunit notes]]></title>
-  <link rel="alternate" type="text/html" href="/php-unit-test" />
-  <id>/php-unit-test</id>
+  <link rel="alternate" type="text/html" href="/note/php-unit-test" />
+  <id>/note/php-unit-test</id>
   <published>2014-05-13T00:00:00+08:00</published>
   <updated>2014-05-13T00:00:00+08:00</updated>
   <author>
@@ -266,7 +266,7 @@ $ ls -al
   </author>
   <content type="html">
 
-  &lt;p&gt;&lt;a href=&quot;/php-unit-test&quot;&gt;phpunit notes&lt;/a&gt; was originally published by Cauchy Cai at &lt;a href=&quot;&quot;&gt;Thinking Aloud&lt;/a&gt; on May 13, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/note/php-unit-test&quot;&gt;phpunit notes&lt;/a&gt; was originally published by Cauchy Cai at &lt;a href=&quot;&quot;&gt;Thinking Aloud&lt;/a&gt; on May 13, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
