@@ -41,26 +41,24 @@ $ git checkout newui
 $ git checkout master
 {% endhighlight %}
 
-3> 代码回到newui还没开始动之前状态，把小功能改完先提交：
+3> 代码回到了之前的状态，先把小功能改完然后提交：
 
 {% highlight bash %}
 $ git commit -m "某个紧急问题"
 $ svn commit -m "...."
 {% endhighlight %}
 
-4> 继续做newui
+4> ok,去测吧。继续做newui
 
 {% highlight bash %}
 $ git checkout newui
 {% endhighlight %}
 
-5> n久之后终于newui可以提交svn了
+5> n久之后终于把newui做完可以提交svn了
 
 {% highlight bash %}
 $ git checkout master
 $ git merge newui
 $ svn commit -m "new ui"
 {% endhighlight %}
-
-
 
