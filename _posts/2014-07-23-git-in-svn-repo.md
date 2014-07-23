@@ -28,33 +28,33 @@ $ svn commit -m "忽略git版本库文件"
 
 这样就可以一定程度上解决一个功能写了好久只写到一半却不敢提交的问题。具体可以这样使用：
 
-1. 当我们做一个大功能时，新开一个branch; 切到这个branch进行开发：
+	1. 当我们做一个大功能时，新开一个branch; 切到这个branch进行开发：
 
 {% highlight bash %}
 $ git branch newui
 $ git checkout newui
 {% endhighlight %}
 
-2. 写到一半来了个紧急需求，得赶紧上。。好吧。。先切回来把这个任务做掉：
+	2. 写到一半来了个紧急需求，得赶紧上。。好吧。。先切回来把这个任务做掉：
 
 {% highlight bash %}
 $ git checkout master
 {% endhighlight %}
 
-3. 代码回到newui还没开始动之前状态，把小功能改完先提交：
+	3. 代码回到newui还没开始动之前状态，把小功能改完先提交：
 
 {% highlight bash %}
 $ git commit -m "某个紧急问题"
 $ svn commit -m "...."
 {% endhighlight %}
 
-4. 继续做newui
+	4. 继续做newui
 
 {% highlight bash %}
 $ git checkout newui
 {% endhighlight %}
 
-5. n久之后终于newui可以提交svn了
+	5. n久之后终于newui可以提交svn了
 
 {% highlight bash %}
 $ git checkout master
