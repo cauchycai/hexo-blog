@@ -2,7 +2,7 @@
 layout: post
 title: "在svn库中使用git"
 description: ""
-category: 
+category: setup
 tags: []
 ---
 {% include JB/setup %}

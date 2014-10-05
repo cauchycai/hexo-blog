@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Install Ruby on Rails on Debian 7.5"
+description: ""
+category: setup
 tags: [om, linux, ruby]
 ---
 {% include JB/setup %}
