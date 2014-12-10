@@ -76,15 +76,15 @@ $ java -jar moco-runner-<version>-standalone.jar http -p 12306 -c foo.json
 {
 	"request" :
 	{
-		"uri" : "/sns/oauth2/access\_token?appid=APPID&secret=SECRET&code=CODE&grant\_type=authorization\_code"
+		"uri" : "/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code"
 	},
 	"response" :
 	{
 		"json" :
 		{
-			"access\_token":"aaaaaaaaaaaaaaaaaaaaaaaaa",
-			"expires\_in":7200,
-			"refresh\_token":"rrrrrrrrrrrrrrrrrrrrrrrrr",
+			"access_token":"aaaaaaaaaaaaaaaaaaaaaaaaa",
+			"expires_in":7200,
+			"refresh_token":"rrrrrrrrrrrrrrrrrrrrrrrrr",
 			"openid":"o-MCxjgmz73EWpfb86ls38LHicdc",
 			"scope":"SCOPE"
 		}
@@ -122,11 +122,11 @@ $ java -jar moco-runner-<version>-standalone.jar http -p 12306 -c foo.json
 {% highlight nginx %}
 server {
 	listen 80;
-	server\_name api.thirdparty.com;
+	server_name api.thirdparty.com;
 	location / {
-		proxy\_set\_header   X-Real-IP $remote\_addr;
-		proxy\_set\_header   Host      $http_host;
-		proxy\_pass         http://127.0.0.1:12306;
+		proxy_set_header   X-Real-IP $remote_addr;
+		proxy_set_header   Host      $http_host;
+		proxy_pass         http://127.0.0.1:12306;
 	}
 }
 {% endhighlight %}
