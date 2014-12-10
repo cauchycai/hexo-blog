@@ -86,13 +86,16 @@ Moco是一个用来模拟外部服务器的工具。在系统集成时，外部�
 
 4. Redirect
 
+{% highlight json %}
+{
+	"request" :
 	{
-		"request" :
-		{
-			"uri" : "/redirect"
-		},
-		"redirectTo" : "http://www.guanaitong.com"
-	}
+		"uri" : "/redirect"
+	},
+	"redirectTo" : "http://www.guanaitong.com"
+}
+{% endhighlight %}
+
 
 
 # 如何在测试/开发环境部署 #
