@@ -16,7 +16,7 @@ Moco是一个用来模拟外部服务器的工具。在系统集成时，外部�
 
 运行：
 
-    java -jar moco-runner-<version>-standalone.jar http -p 12306 -c foo.json
+	java -jar moco-runner-<version>-standalone.jar http -p 12306 -c foo.json
 
 这样就启动一个moco实例，在12306端口接受http请求。foo.json作为配置文件，决定这个模拟服务器如何响应请求。
 
@@ -29,70 +29,70 @@ Moco是一个用来模拟外部服务器的工具。在系统集成时，外部�
 
 1. URI
 
-    {
-      "request" :
-        {
-        "uri" : "/foo",
-        "queries" :
-            {
-              "param" : "blah"
-            }
-        },
-      "response" :
-        {
-          "text" : "bar"
-        }
-    }
+	{
+	  "request" :
+		{
+		"uri" : "/foo",
+		"queries" :
+			{
+			  "param" : "blah"
+			}
+		},
+	  "response" :
+		{
+		  "text" : "bar"
+		}
+	}
 
 测试，通过浏览器访问：http://localhost:12306/foo?parm=blah
 
 
 2. URI with HTTP method; URI regular expression match
 
-    {
-      "request" :
-        {
-          "method" : "get",
-          "uri" : {
-            "match": "/\\w*/foo"
-          }
-        },
-      "response" :
-        {
-          "text" : "bar"
-        }
-    }
+	{
+	  "request" :
+		{
+		  "method" : "get",
+		  "uri" : {
+			"match": "/\\w*/foo"
+		  }
+		},
+	  "response" :
+		{
+		  "text" : "bar"
+		}
+	}
 
 3. json response
 
-     {
-        "request" :
-          {
-            "uri" : "/sns/oauth2/access\_token?appid=APPID&secret=SECRET&code=CODE&grant\_type=authorization\_code"
-          },
-        "response" :
-          {
-            "json" :
-            {
-              "access\_token":"aaaaaaaaaaaaaaaaaaaaaaaaa",
-              "expires\_in":7200,
-              "refresh\_token":"rrrrrrrrrrrrrrrrrrrrrrrrr",
-              "openid":"o-MCxjgmz73EWpfb86ls38LHicdc",
-              "scope":"SCOPE"
-            }
-          }
-     },
+	 {
+		"request" :
+		  {
+			"uri" : "/sns/oauth2/access\_token?appid=APPID&secret=SECRET&code=CODE&grant\_type=authorization\_code"
+		  },
+		"response" :
+		  {
+			"json" :
+			{
+			  "access\_token":"aaaaaaaaaaaaaaaaaaaaaaaaa",
+			  "expires\_in":7200,
+			  "refresh\_token":"rrrrrrrrrrrrrrrrrrrrrrrrr",
+			  "openid":"o-MCxjgmz73EWpfb86ls38LHicdc",
+			  "scope":"SCOPE"
+			}
+		  }
+	 },
 
 
 4. Redirect
 
-    {
-      "request" :
-        {
-          "uri" : "/redirect"
-        },
-      "redirectTo" : "http://www.guanaitong.com"
-    }
+	{
+		"request" :
+		{
+			"uri" : "/redirect"
+		},
+		"redirectTo" : "http://www.guanaitong.com"
+	}
 
 
 # 如何在测试/开发环境部署 #
@@ -101,19 +101,19 @@ Moco是一个用来模拟外部服务器的工具。在系统集成时，外部�
 
 1. 在某端口（如12306）运行模拟服务器实例
 
-    java -jar moco-runner-<version>-standalone.jar http -p 12306 -c foo.json
+	java -jar moco-runner-<version>-standalone.jar http -p 12306 -c foo.json
 
 2. 在web服务器（nginx）配置中设置反向代理
 
-    server {
-        listen 80;
-        server\_name api.thirdparty.com;
-        location / {
-            proxy\_set\_header   X-Real-IP $remote\_addr;
-            proxy\_set\_header   Host      $http_host;
-            proxy\_pass         http://127.0.0.1:12306;
-        }
-    }
+	server {
+		listen 80;
+		server\_name api.thirdparty.com;
+		location / {
+			proxy\_set\_header   X-Real-IP $remote\_addr;
+			proxy\_set\_header   Host      $http_host;
+			proxy\_pass         http://127.0.0.1:12306;
+		}
+	}
 
 3. 修改测试开发环境对于api.thirdparty.com的域名解析，使其指向测试/开发服务器。
 
