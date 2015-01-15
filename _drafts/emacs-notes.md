@@ -1,7 +1,7 @@
 Emacs Manual Notes
 ==================
 
-# C1. The Organization of the Screen#
+# C1. The Organization of the Screen #
 
 ## Point ##
 
@@ -146,3 +146,52 @@ Emacs Manual Notes
 ## Repeating a Command ##
 
 1. *C-x z (repeat)* => This command repeats the previous Emacs command; the second and subsequent repeatings can be invoked by simplly input 'z'
+
+# Searching and Replacement #
+
+## Basics of Incremental Search ##
+
+1. C-s (isearch-forward)
+
+2. C-r (isearch-backward)
+
+3. When you are satisfied with the place you have reached, type RET, this stops searching, leaving the cursor where the search brought it.
+
+4. When you exit the invremental search, *it adds the original value of point to the mark ring*, without activating the mark; you can thus use C-u C-SPC to return to where you were before beginning the search.
+
+5. After exiting a search, you can search for the same string again by typing just C-s C-s
+
+6. To *reuse earlier search strings*, use the search ring. The commands M-p and M-n move through the ring to pick a search string to reuse.
+
+7. *M-e* to edit the current search string in the minibuffer.
+
+8. If the search string was mistyped, you can type *C-g* to remove from the search string the chracters that could not be found.
+
+9. *lax space matching* => each space, or sequence of spaces, matches *any sequence of one or more spaces* in the text.
+
+## Regular Expression Search ##
+
+1. *C-M-s* => Begin incremental regexp search (isearch-forward-regexp).
+
+2. *C-M-r* => Begin reverse incremental regexp search (isearch-backward-regexp).
+
+## Query Replace ##
+
+1. *M-%* => Replace some occurences of string with newstring.
+
+2. *C-M-%* => Replace some matches for regexp with newstring.
+
+3. The charaters you can type when you are shown a match for the string or regexp:
+
+SPC => to replace the occurence with newstring.
+
+DEL => to skip to the next occurence without replacing this one.
+,   => to replace this occurrence and display the result and then you are asked for another input character to say what to do next. C-r to alter the replaced text; C-x u to undo the replacement. Since this exits the query-replace, so you must use *C-x ESC ESC RET* to do further replacement.
+
+RET => to exit without doing any more replacements.
+
+.   => to replace this occurrence and then exit without searching for more occurrences.
+
+!   => to replace all remaining occurrences without asking again.
+
+# The Minibuffer #
