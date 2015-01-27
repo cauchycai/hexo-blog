@@ -195,3 +195,47 @@ RET => to exit without doing any more replacements.
 !   => to replace all remaining occurrences without asking again.
 
 # The Minibuffer #
+
+## Minibuffer History ##
+
+M-p => Move to previous item in the minibuffer history
+
+M-n => Move to next item in the minibuffer history
+
+M-r regexp RET => (previous-matching-history-element)
+
+M-s regexp RET => (next-matching-history-element)
+
+## Repeating Minibuffer Commands ##
+
+C-x ESC ESC => Re-execute a recent minibuffer command
+
+M-x list-command-history => Display the entire command history
+
+# Running Commands by Name #
+
+M-x command RET => Run a command by name (execute-extended-command)
+
+# Help #
+
+C-h e => Display \*Messages\* buffer
+
+C-h w command RET => Show which keys run the command named _command_ (where-is)
+
+C-h F command RET => (Info-goto-emacs-command-node)
+
+C-h C-h => (help-for-help)
+
+C-h b => Display all active key bindings
+
+C-h C-f => Display the Emacs FAQ, using Info
+
+C-h f function RET => (describe-function)
+
+C-h c key => (discribe-key-briefly)
+
+C-h d topics RET => Display the commands and variables whose documentation matches topics (apropos-documentation)
+
+C-h r => Display the Emacs manual in Info (info-emacs-manual)
+
+C-h C-t => Display the Emacs to-do list
