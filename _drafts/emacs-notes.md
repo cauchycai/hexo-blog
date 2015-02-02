@@ -239,3 +239,55 @@ C-h d topics RET => Display the commands and variables whose documentation match
 C-h r => Display the Emacs manual in Info (info-emacs-manual)
 
 C-h C-t => Display the Emacs to-do list
+
+# The Mark and the Region #
+
+When multiple windows show the same buffer, they can have *different values of point*, and thus different regions, but they all share *one common mark position*.
+
+## Setting the Mark ##
+
+C-SPC or C-@ => Set the mark at point, and activate it. (set-mark-command)
+
+C-u C-SPC => jump to mark, and pop a new position for local mark ring
+
+C-x C-x => (exchange-point-and-mark), this command is useful when you are satisfied with the position of point but *want to move the other end of the region*.
+
+C-y set the mark at the other end of the inserted text, without activating it.
+
+C-x C-p => (mark-page)
+
+C-x h => (mark-whole-buffer)
+
+## Operating on the Region ##
+
+*C-x TAB* or C-M-\ => Indent region
+
+C-w => Kill the region
+
+M-w => Copy the region to the kill ring
+
+C-x C-l or C-x C-r => Convert case (upcase-region) or (downcase-region)
+
+C-u C-/ => Undo changes within a region
+
+M-% => Replac text within a region
+
+M-x fill-region => ??
+
+## The Mark Ring ##
+
+C-SPC C-SPC => Set the mark, pushing it onto the mark ring, without activating it.
+
+C-u C-SPC => Move point to where the mark was, and restore the mark from the ring of former marks.
+
+*Repeating C-u C-SPC cycles through the positions currently in the ring.*
+
+*If you want to move back to the same place over and over, use a register instead.*
+
+## The Global Mark Ring ##
+
+C-x C-SPC => (pop-global-mark)
+
+## Disabling Transient Mark Mode ##
+
+transient-mark-mode can be toggled by M-x transient-mark-mode
