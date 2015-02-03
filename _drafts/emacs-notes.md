@@ -291,3 +291,77 @@ C-x C-SPC => (pop-global-mark)
 ## Disabling Transient Mark Mode ##
 
 transient-mark-mode can be toggled by M-x transient-mark-mode
+
+# Killing and Moving Text #
+
+## Deletion ##
+
+Commands that erase text but do not save it in the kill ring are known as *delete* commands; their names usually contain the word 'delete'.
+
+eg:
+C-d (delete-char)
+(delete-trailing-whitespace)
+
+C-x C-o => (delete-blank-lines)
+
+M-^ => Join two lines by deleting the intervening newline (delete-indentation)
+
+(delete-duplicate-lines) , with C-u C-u, it only searches for adjacent identical lines.
+
+## Killing ##
+
+C-S-backspace => (kill-whole-line)
+
+C-x DEL => Kill back to beginning of sentence (backward-kill-sentence)
+
+M-k => Kill to the end of the sentence (kill-sentence)
+
+M-w => (kill-ring-save)
+
+If you change the variable kill-do-not-save-duplicates to a non-nil value, identical subsequent kill yield a single kill-ring entry, without duplication.
+
+## Yanking ##
+
+M-y => (yank-pop)
+
+C-y => (yank)
+
+C-u C-y => C-y + C-u C-SPC
+
+M-y move the *"last yank" pointer* around the ring
+
+C-M-w => (append-next-kill)
+
+## Accumulating Text ##
+
+M-x append-to-buffer
+
+M-x prepend-to-buffer
+
+M-x copy-to-buffer
+
+M-x insert-buffer
+
+M-x append-to-file
+
+## Rectangles ##
+
+Rectangle commands are useful with text in multicolumn formats
+
+C-x r k => (kill-rectangle)
+
+C-x r M-w => (copy-rectangle-as-kill)
+
+C-x r d => (delete-rectangle)
+
+C-x r y => (yank-rectangle)
+
+C-x r o => (open-rectangle)
+
+*C-x r N* => (rectabgle-number-lines)
+
+C-x r c => (clear-rectangle)
+
+C-x r t string RET => (string-rectangle)
+
+C-x SPC => (rectangle-mark-mode)
