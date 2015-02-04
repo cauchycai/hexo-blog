@@ -365,3 +365,85 @@ C-x r c => (clear-rectangle)
 C-x r t string RET => (string-rectangle)
 
 C-x SPC => (rectangle-mark-mode)
+
+# Registers #
+
+Each register has a name that consists of a single character.
+
+To view what register r contains:
+
+M-x view-regitster RET r
+
+Bookmarks record files and positions in them, so you can return to those positions when you look at the file again.
+
+A register can store a *position*, a piece of *text*, a *rectangle*, a *number*, a *window configuration*, or a *file name*
+
+## Saving Positions in Registers ##
+
+*C-x r SPC* (r) => Record the position of point and the current buffer in register r (point-to-register)
+
+*C-x r j* (r) => (jump-to-register)
+
+## Saving Text in Registers ##
+
+*C-x r s* (r) => Copy region into register r (copy-to-register)
+
+*C-x r i* (r) => Insert text from register r (insert-register)
+
+M-x append-to-register RET (r)
+
+M-x prepend-to-register RET (r)
+
+*C-x r +* (r) => (increment-register), which behaves differently for number and text
+
+## Saving Retangles in Registers ##
+
+C-x r r (r) => (copy-rectanble-to-register)
+
+C-x r i (r) => (insert-register), if it contains a rectanble
+
+## Saving Window Configurations in Registers ##
+
+C-x r w (r) => (window-configuration-to-register), for the selected frame
+
+C-x r f (r) => (frameset-to-register), for all frames
+
+C-x r j (r) => to restore a window/frame configuration, the command is the same as restore a cursor position
+
+## Keeping Numbers in Registers ##
+
+This can be useful in keyboard macros
+
+*C-u number C-x r n* (r) => Store _number_ into register r (number-to-register)
+
+*C-u number C-x r +* (r) => If r contains a number, increment the number in that register by _number_
+
+C-x r i (r) => Insert the number from register _r_ into the buffer
+
+C-x r + with no numeric argument increments the register value by 1; C-x r n with numeric argument stores zero in the register.
+
+## Keeping File Names in Registers ##
+
+(set-register r '(file . _name_))
+
+C-x r j (r) => visit the file
+
+## Keyboard Macro Registers ##
+
+*C-x C-k x* (r) => Store the last keyboard macro in register _r_ , (kmacro-to-register)
+
+C-x r j (r) => To execute the keyboard macro in register _r_
+
+## Bookmarks ##
+
+Bookmarks record positions you can jump to, while unlike registers they have *long names*, and they persist from one Emacs session to the next.
+
+*C-x r m RET* => Set the bookmark for the visited file, at point.
+
+*C-x r m _bookmark_ RET* => Set the bookmark named _bookmark_ at point (bookmark-set)
+
+*C-x r b _bookmark_ RET* => Jump to the bookmark named _bookmark_ (bookmark-jump)
+
+*C-x r l* => List all bookmarks (list-bookmarks)
+
+M-x bookmark-save
