@@ -447,3 +447,30 @@ Bookmarks record positions you can jump to, while unlike registers they have *lo
 *C-x r l* => List all bookmarks (list-bookmarks)
 
 M-x bookmark-save
+
+
+# Commands for Fixing Typos #
+
+## Undo ##
+
+*C-/* => (undo) or its aliases, C-_ or C-x u
+
+When there is an active region, any use of undo performs _selective undo_
+
+## Transposing Text ##
+
+*C-t* => (transpose-chars)
+
+M-t => (transpose-words)
+
+C-M-t => (transpose-sexps)
+
+C-x C-t => (transpose-lines)
+
+## Case Conversion ##
+
+*M-- M-l* => Convert last word to lower case.
+
+*M-- M-u* => Convert last word to all upper case.
+
+*M-- M-c* => Convert last word to lower case with *capital initial*
