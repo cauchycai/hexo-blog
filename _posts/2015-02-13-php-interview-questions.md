@@ -2,7 +2,6 @@
 layout: post
 title: "PHP初级面试问题整理"
 description: ""
-category: programming
 tags: [php]
 ---
 {% include JB/setup %}
