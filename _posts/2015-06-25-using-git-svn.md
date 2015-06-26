@@ -16,20 +16,20 @@ svn当然足够用了。可惜用过git之后就不再这么觉得。
 
 具体的流程是这样：
 
-1. 检出 svn 版本库
+#### 1. 检出 svn 版本库 ####
 
 {% highlight bash %}
 $ git svn clone http://svn.repo.url/project
 {% endhighlight %}
 
 
-2. 本地有了一个 git 库，里面有所有 svn 历史提交，并且有一个特殊的 remote 分支叫做 git-svn 。可以用下面这个命令查看。
+#### 2. 本地有了一个 git 库，里面有所有 svn 历史提交，并且有一个特殊的 remote 分支叫做 git-svn 。可以用下面这个命令查看。 ####
 
 {% highlight bash %}
 $ git branch -a
 {% endhighlight %}
 
-3. O.K. 现在本地是 git 库了，你就像使用其他 git 项目一样的使用它，甚至你可以添加其他 remote 。当你想把代码提交到 svn 。
+#### 3. O.K. 现在本地是 git 库了，你就像使用其他 git 项目一样的使用它，甚至你可以添加其他 remote 。当你想把代码提交到 svn 。 ####
 
 {% highlight bash %}
 $ git svn dcommit
@@ -38,7 +38,7 @@ $ git svn dcommit
 这个命令会把当前 git 分支的最近一次 commit 提交到 git-svn 这个 remote 分支，并且 push 到 svn 服务器。
 
 
-4. 那 svn up 用什么代替？ 用这个命令：
+#### 4. 那 svn up 用什么代替？ 用这个命令： ####
 
 {% highlight bash %}
 $ git svn rebase
