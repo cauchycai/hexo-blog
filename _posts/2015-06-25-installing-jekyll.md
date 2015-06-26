@@ -4,6 +4,7 @@ title: "Installing Jekyll"
 description: ""
 tags: [jekyll]
 ---
+{% include JB/setup %}
 
 1. Install Ruby and gem.
 
