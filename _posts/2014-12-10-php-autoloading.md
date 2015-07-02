@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Autoloading"
+title: "PHP Autoloading"
 description: ""
 tags: [php]
 ---
