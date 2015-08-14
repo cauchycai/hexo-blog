@@ -36,6 +36,6 @@ C-c p k => projectile-kill-buffers, 关闭本项目中所有打开的buffer。
 
 C-c p r => projectile-replace, 项目中批量替换文本。
 
-C-c p s => projectile-grep, 项目中grep。
+C-c p s g => projectile-grep, 项目中grep。
 
 C-c p 4 f => projectile-find-file-other-window, 在项目中查找文件并在另一个window中打开。
