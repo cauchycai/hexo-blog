@@ -10,6 +10,14 @@ tags: [emacs]
 
 通常我们写程序时会同时打开几个项目，在不同项目的代码文件之间跳来跳去。Projectile 实现了快捷的查找项目内文件或另一项目内的文件。另外还能实现项目内 grep。
 
+### 如何安装 ###
+
+{% highlight lisp %}
+(require-package 'projectile)
+(projectile-global-mode)
+(setq projectile-enable-caching t)
+{% endhighlight %}
+
 ### 如何使用 ###
 
 对于被 version control 了的项目，不需要做任何配置 Projectile 即可识别并以版本库为单元区分项目。
