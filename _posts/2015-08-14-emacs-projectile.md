@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "My Favourite Emacs Modes - 1. Projectile"
+title: "My Favourite Emacs Modes - Projectile"
 description: ""
 tags: [emacs]
 ---

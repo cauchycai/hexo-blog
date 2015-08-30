@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "My Favourite Emacs Modes - 2. multiple-cursors"
+title: "My Favourite Emacs Modes - multiple-cursors"
 description: ""
 tags: [emacs]
 ---
