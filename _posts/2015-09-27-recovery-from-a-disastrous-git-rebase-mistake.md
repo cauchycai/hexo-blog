@@ -4,7 +4,7 @@ title: "Git-rebase 误操作的恢复"
 description: ""
 tags: [git]
 ---
-{% include JB/setup %}
+
 
 我在进行一个 Git 的常用操作 - rebase 时，遇到了一个致命错误，导致开发分支上的commit丢失。慌张的同时，由于相信 Git 提供了保险措施，我找到了恢复丢失的 commit 的方法。这里记录一下。
 

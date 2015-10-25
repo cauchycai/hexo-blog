@@ -4,7 +4,7 @@ title: "My Favourite Emacs Modes - Projectile"
 description: ""
 tags: [emacs]
 ---
-{% include JB/setup %}
+
 
 ### Projectile 解决的问题 ###
 

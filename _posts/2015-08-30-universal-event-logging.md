@@ -4,7 +4,7 @@ title: "机械式的工作与生活日志纪录"
 description: ""
 tags: [inbox]
 ---
-{% include JB/setup %}
+
 
 计算机系统的软件通常都有各自的日志文件。比如 Web 服务器 nginx 有如下格式的访问日志：
 

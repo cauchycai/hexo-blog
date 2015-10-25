@@ -4,7 +4,7 @@ title: "My Favourite Emacs Modes - multiple-cursors"
 description: ""
 tags: [emacs]
 ---
-{% include JB/setup %}
+
 
 ### multiple-cursors 解决的问题 ###
 

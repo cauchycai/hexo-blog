@@ -5,7 +5,7 @@ description: ""
 category: setup
 tags: [om, linux, ruby]
 ---
-{% include JB/setup %}
+
 
 ### Installing Passenger and Dependencies
 

@@ -4,7 +4,7 @@ title: "git-svn 的使用"
 description: ""
 tags: [git, software]
 ---
-{% include JB/setup %}
+
 
 团队用了很多年的svn，短时间内看不到切换到git进行版本管理的可能。
 

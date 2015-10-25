@@ -4,7 +4,7 @@ title: "PHP Autoloading"
 description: ""
 tags: [php]
 ---
-{% include JB/setup %}
+
 
 # 解决的问题 #
 

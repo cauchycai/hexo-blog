@@ -4,7 +4,7 @@ title: "Mac 上安装 Emacs 的几种选择"
 description: ""
 tags: [emacs, osx, mac, software]
 ---
-{% include JB/setup %}
+
 
 * brew 中的默认版本
 

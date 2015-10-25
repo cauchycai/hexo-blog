@@ -4,7 +4,7 @@ title: "PHP初级面试问题整理"
 description: ""
 tags: [php]
 ---
-{% include JB/setup %}
+
 
 ### 简述面试者使用过的某一个框架？它的特性？ ###
 

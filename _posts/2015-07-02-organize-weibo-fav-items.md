@@ -4,7 +4,7 @@ title: "整理微博中的收藏"
 description: ""
 tags: [organize]
 ---
-{% include JB/setup %}
+
 
 所有收藏都应该整理归类归档，以便好资源的再发现，也防止一个资源收藏之后不闻不问。
 

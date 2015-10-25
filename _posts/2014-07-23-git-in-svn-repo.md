@@ -5,7 +5,7 @@ description: ""
 category: setup
 tags: [git]
 ---
-{% include JB/setup %}
+
 
 初始化Git版本库；忽略svn版本库文件夹 => .svn；添加项目文件到git库。
 
