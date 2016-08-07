@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>git-svn 的使用 | 追客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/about">about</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2015/05/25/using-git-svn/">git-svn 的使用</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">May 25 2015</p>
+  </section>
+
+  <section class="article-entry">
+    <p>团队用了很多年的svn，短时间内看不到切换到git进行版本管理的可能。</p>
+<p>svn当然足够用了。可惜用过git之后就不再这么觉得。</p>
+<p>分布式带来的离线提交的好处倒是其次。关键是git让我喜欢branch，你能想象在svn里面每天几次进行branch切换和merging吗？ 有了branch之后，开发流程管理变得简单了。只有当一个功能准备上线时才将这个功能分支 merge 到 master 分支。这样就保证了一个功能尚未完成时永远不影响 线上版本（master）的小版本更新。</p>
+<p>所以我的开发环境使用 git，用 git-svn 这个工具提交代码到 svn 版本库。</p>
+<p>具体的流程是这样：</p>
+<h4 id="1-检出-svn-版本库"><a href="#1-检出-svn-版本库" class="headerlink" title="1. 检出 svn 版本库"></a>1. 检出 svn 版本库</h4><figure class="highlight plain"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git svn clone http://svn.repo.url/project</div></pre></td></tr></table></figure>
+<h4 id="2-本地有了一个-git-库，里面有所有-svn-历史提交，并且有一个特殊的-remote-分支叫做-git-svn-。可以用下面这个命令查看。"><a href="#2-本地有了一个-git-库，里面有所有-svn-历史提交，并且有一个特殊的-remote-分支叫做-git-svn-。可以用下面这个命令查看。" class="headerlink" title="2. 本地有了一个 git 库，里面有所有 svn 历史提交，并且有一个特殊的 remote 分支叫做 git-svn 。可以用下面这个命令查看。"></a>2. 本地有了一个 git 库，里面有所有 svn 历史提交，并且有一个特殊的 remote 分支叫做 git-svn 。可以用下面这个命令查看。</h4><figure class="highlight plain"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div></pre></td></tr></table></figure>
+<h4 id="3-O-K-现在本地是-git-库了，你就像使用其他-git-项目一样的使用它，甚至你可以添加其他-remote-。当你想把代码提交到-svn-。"><a href="#3-O-K-现在本地是-git-库了，你就像使用其他-git-项目一样的使用它，甚至你可以添加其他-remote-。当你想把代码提交到-svn-。" class="headerlink" title="3. O.K. 现在本地是 git 库了，你就像使用其他 git 项目一样的使用它，甚至你可以添加其他 remote 。当你想把代码提交到 svn 。"></a>3. O.K. 现在本地是 git 库了，你就像使用其他 git 项目一样的使用它，甚至你可以添加其他 remote 。当你想把代码提交到 svn 。</h4><figure class="highlight plain"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git svn dcommit</div></pre></td></tr></table></figure>
+<p>这个命令会把当前 git 分支的最近一次 commit 提交到 git-svn 这个 remote 分支，并且 push 到 svn 服务器。</p>
+<h4 id="4-那-svn-up-用什么代替？-用这个命令："><a href="#4-那-svn-up-用什么代替？-用这个命令：" class="headerlink" title="4. 那 svn up 用什么代替？ 用这个命令："></a>4. 那 svn up 用什么代替？ 用这个命令：</h4><figure class="highlight plain"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git svn rebase</div></pre></td></tr></table></figure>
+<p>O.K. 这样就可以满足大部分的使用场景了。</p>
+<p>相关的文档可以看这里： <a href="https://www.kernel.org/pub/software/scm/git/docs/git-svn.html" target="_blank" rel="external">https://www.kernel.org/pub/software/scm/git/docs/git-svn.html</a></p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="http://7xrcp8.com1.z0.glb.clouddn.com/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 追客 </p>
+      <p class="subtitle"> You are the JavaScript in my HTML </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=团队用了很多年的svn，短时间内看不到切"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+  </section>
+</div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://www.cauchy.me/2015/05/25/using-git-svn/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>

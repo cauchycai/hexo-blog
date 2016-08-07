@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>机械式的任务管理 | 追客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/about">about</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2015/09/06/how-i-work/">机械式的任务管理</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">September 06 2015</p>
+  </section>
+
+  <section class="article-entry">
+    <p>本文主要讲我遵循的这一套很机械的任务管理方法。</p>
+<p>每天的早晨，我会先把今天要做的事情列出来。然后排一个优先级，分为 A B C 三等。A 的优先级最高， B C 次之。A 优先级只选一件事情:今天开工后第一件要做的工作。B 优先级的任务可以有很多个，这些任务是这一天白天的主要工作。C 优先级的任务首先是那些计划了晚上要做的事情，然后也包括那些可以利用白天琐碎时间来完成的琐碎任务。</p>
+<p>早晨做一天的计划时，我评估每个任务的工作量。比如任务1我觉得需要花 20 分钟，我就对这个任务进行标记 “Estimate: 0:20”；而任务2我觉得很困难，需要花2小时，标记：”Estimate: 2:00”。所有任务都进行标记，看一下总时间。根据一段时间的观察，我已经很清楚自己的平均战斗力，一天的工作时间封顶也就5个半小时。因此所有任务加起来的时间如果超过6小时，我就很理性的把一些不那么紧急的任务延后：schedule 到后面的日子。</p>
+<p>然后就开始一天的工作。A 优先级的任务就是当前做的任务，每一个时刻有且只有一个 A 任务。A 任务会排在任务列表的最顶端，我也只专心解决它，其他任务都先抛在脑后。做完了标记为 DONE, 休息休息。然后从 B 优先级的任务中挑出下一个, 将它升级为 A 优先级，并开始解决。……依此循环。</p>
+<p>所有任务都要计时。基本上所有任务都是在电脑上完成，或者甚至都是在 Emacs 编辑器中完成, 因此计时是很容易的。计时也是必须的，因为：1. 我喜欢计时；2. 记录到的实际任务用时可以与我早晨的预估进行比较, 看看是高估了自己还是低估了自己（90%高估，极少低估）；3. 时间的使用可以作为对自己工作 review 的一个依据。</p>
+<p>当一天结束时，这一天的所有任务必须标记为 DONE 。也就是说没有跨天的任务存在。假如任务事实上跨了多天，那就拆分成多个：如</p>
+<ul>
+<li>TODO [#B] learn bshaffer/oauth2-server-php (1)</li>
+<li>TODO [#B] learn bshaffer/oauth2-server-php (2)</li>
+<li>TODO [#B] learn bshaffer/oauth2-server-php (3)</li>
+</ul>
+<p>目的是保证在一天结束的时候，我可以看到干干净净任务列表：每一个都 DONE 了（强迫症得治。。）。另外跨天的任务也不方便作任务用时的预估（Estimate）。</p>
+<p>所有任务还需要加上一个或多个标签（tag）。比如 @gat 这个tag代表我在公司里做的那些任务 （gat是公司名字的缩写）。一个任务可以有多个标签（tag），所以 @gat 之后还可以加上项目标签，如 :@gat:wechat:code: 表示这个任务是公司里的微信项目的编码（coding）任务。通过这个标签机制，我的统计程序就可以很方便的统计我一段时间内做 wechat 这个项目花了多少时间。或者通过组合项目名和code标签，统计出我一段时间内在几个不同的项目上所花费的编码时间的比重。</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="http://7xrcp8.com1.z0.glb.clouddn.com/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 追客 </p>
+      <p class="subtitle"> You are the JavaScript in my HTML </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=本文主要讲我遵循的这一套很机械的任务管理"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+  </section>
+</div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://www.cauchy.me/2015/09/06/how-i-work/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>

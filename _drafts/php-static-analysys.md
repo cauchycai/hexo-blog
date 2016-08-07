@@ -1,2 +1,0 @@
-PHP Static Analysys - phpcs
-===========================
